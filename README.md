@@ -1,24 +1,13 @@
-## OpenCV: Open Source Computer Vision Library
+To compare the output for openCV and TF calls,
 
-### Resources
+1. cd to samples/dnn/
+2. from the above directory,
+   python -m dnn_model_runner.dnn_conversion.tf.classification.py_to_py_mobilenet
 
-* Homepage: <https://opencv.org>
-  * Courses: <https://opencv.org/courses>
-* Docs: <https://docs.opencv.org/4.x/>
-* Q&A forum: <https://forum.opencv.org>
-  * previous forum (read only): <http://answers.opencv.org>
-* Issue tracking: <https://github.com/opencv/opencv/issues>
-* Additional OpenCV functionality: <https://github.com/opencv/opencv_contrib> 
+and for visualization,
 
+python -m dnn_model_runner.dnn_conversion.tf.classification.py_to_py_cls --model_name mobilenet --test True --default_img_preprocess True --evaluate False
 
-### Contributing
+3. python object_detection.py --model ../../ssd_mobilenet_v1_coco_2017_11_17/frozen_inference_graph.pb --config ../../ssd_mobilenet_v1_coco_2017_11_17/ssd_mobilenet_v1_coco_2017_11_17.pbtxt  --input ../../pexels_double_decker_bus.jpg --width 300 --height 300 --classes ../../object_detection_classes_coco.txt
 
-Please read the [contribution guidelines](https://github.com/opencv/opencv/wiki/How_to_contribute) before starting work on a pull request.
-
-#### Summary of the guidelines:
-
-* One pull request per issue;
-* Choose the right base branch;
-* Include tests and documentation;
-* Clean up "oops" commits before submitting;
-* Follow the [coding style guide](https://github.com/opencv/opencv/wiki/Coding_Style_Guide).
+3. Make sure you have TF 2.4.0 with MacOS build.
