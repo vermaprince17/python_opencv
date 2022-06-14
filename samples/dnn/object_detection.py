@@ -101,14 +101,17 @@ def postprocess(frame, outs):
     def drawPred(classId, conf, left, top, right, bottom):
         # Draw a bounding box.
         cv.rectangle(frame, (left, top), (right, bottom), (0, 255, 0))
-
+        print("LEFT: ", left);
+        print("TOP: ", top);
+        print("RIGHT: ", right);
+        print("BOTTOM: ", bottom);
         label = '%.2f' % conf
 
         # Print a label of class.
         if classes:
             assert(classId < len(classes))
             label = '%s: %s' % (classes[classId], label)
-
+        print("LABEL: ", label)
         labelSize, baseLine = cv.getTextSize(label, cv.FONT_HERSHEY_SIMPLEX, 0.5, 1)
         top = max(top, labelSize[1])
         cv.rectangle(frame, (left, top - labelSize[1]), (left + labelSize[0], top + baseLine), (255, 255, 255), cv.FILLED)
